@@ -1,0 +1,9 @@
+# Arquivos do sistema operacional
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Arquivos temporários / de editor
+*.tmp
+*.swp
+*~

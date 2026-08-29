@@ -1,0 +1,389 @@
+/* ==========================================================================
+   Configurações gerais
+   Paleta de cores (somente hexadecimais):
+   - Cor principal : verde (cabeçalho, títulos, destaques de marca)
+   - Cor secundária: verde claro (elementos de apoio, fundos suaves)
+   - Cor de destaque: laranja (chamadas e links de atenção)
+   - Cor de fundo  : creme claro (fundo geral da página)
+   - Cor de texto  : cinza-escuro (leitura confortável)
+   ========================================================================== */
+
+/* Variáveis de cor: centralizam a paleta e garantem consistência em toda a página */
+:root {
+    --cor-principal: #2F855A;
+    --cor-secundaria: #81C99C;
+    --cor-destaque: #E8743B;
+    --cor-fundo: #FAF9F6;
+    --cor-texto: #2D3748;
+    --cor-branco: #FFFFFF;
+}
+
+/* Reset básico: remove margens/paddings padrão do navegador e inclui bordas no cálculo do tamanho */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos base do corpo: fonte principal, cor de texto, fundo e altura de linha para leitura agradável */
+body {
+    font-family: 'Nunito', Arial, sans-serif;
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo);
+    line-height: 1.6;
+}
+
+/* Container centralizado que limita a largura do conteúdo em telas grandes */
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* Espaçamento vertical entre as seções principais da página */
+section {
+    margin-bottom: 3rem;
+}
+
+/* Hierarquia visual da tipografia:
+   - h1: títulos principais (Poppins, maiores)
+   - h2: subtítulos de seção
+   - p : textos de leitura corrente
+   - figcaption: legendas (menores e itálicas) */
+
+/* Títulos de seção: fonte de destaque, cor principal e espaçamento inferior */
+section h2 {
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 1.75rem;
+    color: var(--cor-principal);
+    margin-bottom: 0.5rem;
+}
+
+/* Subtítulo das seções: texto de apoio, menor que o título */
+.subtitulo {
+    font-size: 1rem;
+    color: #6B7280;
+    margin-bottom: 1.25rem;
+}
+
+/* Legendas de imagens: texto pequeno, itálico e centralizado */
+figcaption {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: #6B7280;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+/* Cabeçalho da página: fundo na cor principal, texto branco e centralizado */
+header {
+    background-color: var(--cor-principal);
+    color: var(--cor-branco);
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+/* Título principal do site: fonte de destaque e tamanho grande */
+header h1 {
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 2.25rem;
+    margin-bottom: 0.25rem;
+}
+
+/* Descrição do cabeçalho: texto de apoio um pouco transparente */
+header p {
+    font-size: 1.05rem;
+    opacity: 0.9;
+}
+
+/* Navegação: barra horizontal com fundo mais escuro para contraste com o cabeçalho */
+nav {
+    background-color: #226348;
+    padding: 0.75rem 1rem;
+}
+
+/* Lista do menu: alinhada ao centro, sem marcadores e com espaçamento entre itens */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+/* Links do menu: brancos, em negrito, sem sublinhado padrão */
+nav a {
+    color: var(--cor-branco);
+    text-decoration: none;
+    font-weight: 700;
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 0.95rem;
+}
+
+/* Destaque (laranja) e sublinhado ao passar o mouse sobre os links do menu */
+nav a:hover {
+    color: var(--cor-destaque);
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   Seção de apresentação
+   ========================================================================== */
+
+/* Usa flexbox para colocar texto e imagem lado a lado, com quebra em telas menores */
+.apresentacao {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+/* Cada bloco (texto/imagem) ocupa o mesmo espaço e tem largura mínima antes de quebrar */
+.apresentacao .texto,
+.apresentacao figure {
+    flex: 1;
+    min-width: 280px;
+}
+
+/* Espaçamento entre os parágrafos da apresentação */
+.apresentacao .texto p {
+    margin-bottom: 1rem;
+}
+
+/* Imagens da apresentação: ocupam toda a largura, com bordas arredondadas */
+.apresentacao img {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+}
+
+/* ==========================================================================
+   Cards (Cuidados essenciais)
+   ========================================================================== */
+
+/* Container dos cards usando Grid: cria múltiplas colunas que se ajustam ao espaço disponível.
+   O minmax(240px, 1fr) garante que cada card tenha no mínimo 240px antes de quebrar de linha */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Estilo do card: fundo branco, bordas arredondadas, leve sombra e layout em coluna */
+article {
+    background-color: var(--cor-branco);
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efeito de elevação do card ao passar o mouse, melhorando a percepção de interação */
+article:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Imagem do card: cobre o espaço mantendo proporção, sem esticar nem ultrapassar o container */
+article img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Título do card: cor principal, fonte de destaque e espaçamento adequado */
+article h3 {
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 1.15rem;
+    color: var(--cor-principal);
+    padding: 1rem 1rem 0;
+}
+
+/* Texto do card: menor que o título, com respiro nas laterais e abaixo */
+article p {
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem 1.5rem;
+    color: #4B5563;
+}
+
+/* ==========================================================================
+   Galeria
+   ========================================================================== */
+
+/* Galeria responsiva com CSS Grid: o auto-fit cria o máximo de colunas possíveis
+   e o minmax define a largura mínima de cada imagem antes de reduzir as colunas.
+   Em desktop (container de até 1100px) cabem 4 imagens lado a lado */
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Cada figura da galeria: fundo branco, bordas arredondadas e sombra leve */
+.galeria figure {
+    background-color: var(--cor-branco);
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 0.75rem;
+    margin: 0;
+}
+
+/* Imagens da galeria: ocupam 100% da largura do container,
+   mantêm a proporção (aspect-ratio) e não ultrapassam o limite */
+.galeria img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+}
+
+/* ==========================================================================
+   Rodapé
+   ========================================================================== */
+
+/* Rodapé: fundo na cor principal, texto branco e centralizado */
+footer {
+    background-color: var(--cor-principal);
+    color: var(--cor-branco);
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* Links do rodapé: brancos, para manter contraste com o fundo */
+footer a {
+    color: var(--cor-branco);
+}
+
+/* ==========================================================================
+   Responsividade
+   --------------------------------------------------------------------------
+   Os breakpoints NÃO são números decorados: foram escolhidos observando o
+   momento em que o layout começa a perder qualidade.
+
+   - Desktop (padrão, acima de 900px): é o layout definido nas seções acima.
+     Apresentação em 2 colunas, cards em 4 colunas, galeria em 4 colunas,
+     menu em linha e cabeçalho em tamanho natural.
+
+   - Tablet (até 900px): a partir daqui a apresentação e os cards de 4 colunas
+     ficam apertados demais (cada coluna teria menos de 230px). Então:
+     empilhamos a apresentação, reduzimos cards/galeria para 2 colunas e
+     ajustamos títulos e espaçamentos.
+
+   - Celular (até 600px): abaixo desse ponto o menu em linha e as 2 colunas
+     de cards comprometem a usabilidade. Então: menu empilhado em coluna
+     (com alvos de toque maiores), cards/galeria em coluna única e fontes
+     e espaçamentos reduzidos.
+   ========================================================================== */
+
+/* TABLET — larguras até 900px */
+@media (max-width: 900px) {
+
+    /* Cabeçalho: reduz o tamanho do título e o respiro vertical */
+    header {
+        padding: 1.5rem 1rem;
+    }
+
+    header h1 {
+        font-size: 1.9rem;
+    }
+
+    /* Navegação: mantém o menu em linha, apenas reduz o espaçamento entre itens */
+    nav ul {
+        gap: 1.25rem;
+    }
+
+    /* Seção de conteúdo (apresentação): empilha texto e imagem em coluna,
+       pois lado a lado cada bloco ficaria estreito demais nessa largura.
+       A imagem passa a centralizar e ocupar a largura toda */
+    .apresentacao {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .apresentacao .texto {
+        min-width: 0;
+    }
+
+    .apresentacao figure {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    /* Cards: reduz de 4 para 2 colunas fixas, mantendo os cards legíveis */
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Galeria: reduz de 4 para 2 colunas */
+    .galeria {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Ajusta tamanhos de títulos de seção para a tela menor */
+    section h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* CELULAR — larguras até 600px */
+@media (max-width: 600px) {
+
+    /* Cabeçalho: título e descrição menores para caber bem na tela estreita */
+    header {
+        padding: 1.25rem 1rem;
+    }
+
+    header h1 {
+        font-size: 1.6rem;
+    }
+
+    header p {
+        font-size: 0.95rem;
+    }
+
+    /* Navegação: menu empilhado em coluna, centralizado,
+       com área de toque maior para facilitar o uso no celular */
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    nav a {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+
+    /* Cards: de 2 colunas para coluna única, empilhando verticalmente */
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    /* Galeria: de 2 colunas para coluna única */
+    .galeria {
+        grid-template-columns: 1fr;
+    }
+
+    /* Seção de conteúdo: reduz o padding lateral para aproveitar a tela
+       e ajusta o título da seção para a escala do celular */
+    main {
+        padding: 1.5rem 0.75rem;
+    }
+
+    section h2 {
+        font-size: 1.35rem;
+    }
+
+    /* Legendas um pouco maiores para leitura confortável no celular */
+    figcaption {
+        font-size: 0.8rem;
+    }
+}

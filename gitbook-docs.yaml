@@ -1,11 +1,11 @@
 $schema: https://api.gitbook.com/gitbook-docs.yaml
 site:
-  title: particular Docs
+  title: PetCare Docs
   structure:
     - type: space
       key: space-1
-      title: Untitled
-      path: untitled
+      title: PetCare
+      path: docs
       default: true
       content:
-        directory: ./untitled
+        directory: ./docs
